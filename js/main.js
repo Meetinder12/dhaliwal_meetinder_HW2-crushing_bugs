@@ -17,6 +17,10 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	// because we need it in the handleDrop function
 	draggedPiece;
 
+	
+
+	document.getElementById("resetBut").addEventListener("click", resetBoard);
+
 // step 3
 // functionality always goes in the middle -> how do we want
 // the app to behave?
@@ -30,6 +34,15 @@ function changeBGImage() {
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
     changePieces(this.id);
 }
+
+function resetBoard() {
+	puzzlePieces.forEach(piece => {
+	piece.parentNode.removeChild(piece);
+	document.getElementById("Pieces").appendChild(piece);
+	});
+
+}
+
 function changePieces(id){
     document.getElementById("top_left").src="images/topLeft"+ id + ".jpg";
     document.getElementById("top_right").src="images/topRight"+ id + ".jpg";
