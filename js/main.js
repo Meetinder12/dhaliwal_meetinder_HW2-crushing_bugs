@@ -12,6 +12,7 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzleBoard = document.querySelector(".puzzle-board"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
+	
 
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
@@ -28,13 +29,7 @@ function changeBGImage() {
 
 	// bug fix #2 should go here. it's at most 3 lines of JS code.
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
-    changePieces(this.id);
-}
-function changePieces(id){
-    document.getElementById("top_left").src="images/topLeft"+ id + ".jpg";
-    document.getElementById("top_right").src="images/topRight"+ id + ".jpg";
-    document.getElementById("bottom_left").src="images/bottomLeft"+ id + ".jpg";
-    document.getElementById("bottom_right").src="images/bottomRight"+ id + ".jpg";
+
 }
 
 function handleStartDrag() { 
@@ -51,18 +46,15 @@ function handleDragOver(e) {
 }
 
 function handleDrop(e) { 
-    console.log("drag event",e)
+
 	e.preventDefault();
 	console.log('dropped something on me');
 	// bug fix #1 should go here, and it's at most 3 lines of JS code
-    if (this.childElementCount == 0){
 
-    
 
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
 	this.appendChild(draggedPiece);
-}
 }
 
 
@@ -84,5 +76,6 @@ puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDra
 dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
 
 // add the drop event handling
+
 dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
 
