@@ -1,3 +1,4 @@
+
 // variables always go at the top -> this is step 1
 // these are the connections that you're making to elements on the page 
 // use CSS selectors to make connections to elements with JavaScript
@@ -12,6 +13,7 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
 	
+
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
 	draggedPiece;
@@ -27,6 +29,7 @@ function changeBGImage() {
 
 	// bug fix #2 should go here. it's at most 3 lines of JS code.
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+
 }
 
 function handleStartDrag() { 
@@ -43,9 +46,11 @@ function handleDragOver(e) {
 }
 
 function handleDrop(e) { 
+
 	e.preventDefault();
 	console.log('dropped something on me');
 	// bug fix #1 should go here, and it's at most 3 lines of JS code
+
 
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
@@ -71,4 +76,6 @@ puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDra
 dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
 
 // add the drop event handling
+
 dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
+
