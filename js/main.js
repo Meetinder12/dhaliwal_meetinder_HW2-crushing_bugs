@@ -69,14 +69,14 @@ function handleDrop(e) {
 	console.log('dropped something on me');
 	// bug fix #1 should go here, and it's at most 3 lines of JS code
     if (this.childElementCount == 0){
-
+		this.appendChild(draggedPiece);
+	}
+	}
     
 
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
-	this.appendChild(draggedPiece);
-}
-}
+
 
 
 // step 2
